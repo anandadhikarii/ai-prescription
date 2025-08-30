@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prescription Results</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Glowing button style */
+    .btn-glow {
+      background: linear-gradient(90deg, #22c55e, #2563eb);
+      color: white;
+      font-weight: 600;
+      border-radius: 9999px; /* pill shape */
+      padding: 0.9rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 12px rgba(34,197,94,0.6), 0 0 20px rgba(37,99,235,0.6);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 18px rgba(34,197,94,0.9), 0 0 28px rgba(37,99,235,0.9);
+      transform: scale(1.07);
+    }
+    .btn-glow:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-green-100 via-white to-blue-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white shadow-lg py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6">
+      <h1 class="text-3xl font-extrabold tracking-wide drop-shadow-lg">🧾 Prescription Results</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="support.html" class="hover:underline">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="flex-1 flex flex-col items-center px-6 py-12">
+    <div class="bg-white/90 rounded-2xl shadow-2xl p-6 md:p-10 w-full max-w-4xl backdrop-blur-sm">
+      <h2 class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+        Analysis Results
+      </h2>
+
+      <!-- Prescription Info -->
+      <div class="mb-6 text-gray-700 text-lg">
+        <p><strong>Patient Age:</strong> <span id="display-age" class="text-blue-600 font-semibold"></span></p>
+        <p><strong>Prescription:</strong> <span id="display-text" class="text-green-600 font-semibold"></span></p>
+      </div>
+
+      <!-- Results Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full border border-gray-300 rounded-lg shadow-sm">
+          <thead class="bg-gradient-to-r from-green-400 to-blue-400 text-white">
+            <tr>
+              <th class="py-3 px-4 text-left">Drug</th>
+              <th class="py-3 px-4 text-left">Dosage</th>
+              <th class="py-3 px-4 text-left">Risk</th>
+              <th class="py-3 px-4 text-left">Alternative</th>
+            </tr>
+          </thead>
+          <tbody id="results-body" class="bg-white divide-y divide-gray-200">
+            <!-- Rows will be injected dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Buttons -->
+      <div class="mt-8 flex space-x-6 justify-center">
+        <button onclick="window.location.href='index.html'" class="btn-glow">
+          ⬅️ Back
+        </button>
+        <button onclick="alert('💾 Downloaded as PDF (demo)!')" class="btn-glow">
+          📥 Download Report
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-12 bg-gradient-to-r from-blue-600 to-green-500 text-white py-6 text-center text-sm">
+    © 2025 AI Prescription Verifier • Designed with 💙 + 💚
+  </footer>
+
+  <script>
+    // Load saved values from localStorage
+    document.getElementById("display-age").textContent = localStorage.getItem("patientAge") || "N/A";
+    document.getElementById("display-text").textContent = localStorage.getItem("prescriptionText") || "N/A";
+
+    // Example dummy results (replace with backend response)
+    const exampleResults = [
+      { drug: "Paracetamol", dosage: "500mg", risk: "Low", alternative: "Acetaminophen" },
+      { drug: "Ibuprofen", dosage: "200mg", risk: "Moderate", alternative: "Naproxen" }
+    ];
+
+    const resultsBody = document.getElementById("results-body");
+    exampleResults.forEach(item => {
+      const row = `<tr>
+        <td class="py-3 px-4">${item.drug}</td>
+        <td class="py-3 px-4">${item.dosage}</td>
+        <td class="py-3 px-4">${item.risk}</td>
+        <td class="py-3 px-4">${item.alternative}</td>
+      </tr>`;
+      resultsBody.innerHTML += row;
+    });
+  </script>
+</body>
+</html>

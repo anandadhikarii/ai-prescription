@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Prescription Verifier</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Extra glowing button effect */
+    .btn-glow {
+      background: linear-gradient(90deg, #22c55e, #2563eb);
+      color: white;
+      font-weight: 600;
+      border-radius: 9999px; /* pill shape */
+      padding: 0.9rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 12px rgba(34,197,94,0.6), 0 0 20px rgba(37,99,235,0.6);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 18px rgba(34,197,94,0.9), 0 0 28px rgba(37,99,235,0.9);
+      transform: scale(1.07);
+    }
+    .btn-glow:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-100 via-white to-green-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white shadow-lg py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6">
+      <h1 class="text-3xl font-extrabold tracking-wide drop-shadow-lg">🩺 AI Prescription Verifier</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About</a>
+        <a href="support.html" class="hover:underline">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section -->
+  <main class="flex-1 flex flex-col items-center justify-center px-6 py-12">
+    <div class="bg-white/90 rounded-2xl shadow-2xl glow p-6 md:p-10 w-full max-w-3xl backdrop-blur-sm">
+      <h2 class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+        Analyze Your Prescription
+      </h2>
+
+      <!-- Input Form -->
+      <div class="space-y-6">
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Patient's Age</label>
+          <input id="patient-age" type="number" value="18"
+                 class="w-full border-2 border-blue-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-4 focus:ring-green-400 focus:border-blue-500 transition-all duration-300">
+        </div>
+        <div>
+          <label class="block text-gray-700 font-semibold mb-2">Prescription Text</label>
+          <textarea id="prescription-text" rows="4"
+                    placeholder="Enter prescription text here..."
+                    class="w-full border-2 border-blue-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-4 focus:ring-green-400 focus:border-blue-500 transition-all duration-300"></textarea>
+        </div>
+        
+        <!-- Stylish glowing button -->
+        <button id="analyze-btn" class="btn-glow w-full">
+          🚀 Analyze Prescription
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-12 bg-gradient-to-r from-blue-600 to-green-500 text-white py-6 text-center text-sm">
+    © 2025 AI Prescription Verifier • Designed with 💙 + 💚
+  </footer>
+
+  <script>
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const patientAgeInput = document.getElementById('patient-age');
+    const prescriptionTextInput = document.getElementById('prescription-text');
+
+    analyzeBtn.addEventListener('click', () => {
+      const patientAge = patientAgeInput.value;
+      const prescriptionText = prescriptionTextInput.value;
+
+      if (!prescriptionText) {
+        alert("⚠️ Please enter prescription text to analyze.");
+        return;
+      }
+
+      // Save values in localStorage to use on results page
+      localStorage.setItem("patientAge", patientAge);
+      localStorage.setItem("prescriptionText", prescriptionText);
+
+      // Redirect to results page
+      window.location.href = "results.html";
+    });
+  </script>
+</body>
+</html>

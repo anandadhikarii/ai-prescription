@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - AI Prescription Verifier</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Glowing button style */
+    .btn-glow {
+      background: linear-gradient(90deg, #22c55e, #2563eb);
+      color: white;
+      font-weight: 600;
+      border-radius: 9999px; /* pill shape */
+      padding: 0.9rem 1.5rem;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 12px rgba(34,197,94,0.6), 0 0 20px rgba(37,99,235,0.6);
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 18px rgba(34,197,94,0.9), 0 0 28px rgba(37,99,235,0.9);
+      transform: scale(1.07);
+    }
+    .btn-glow:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-green-100 via-white to-blue-100 min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <header class="w-full bg-gradient-to-r from-blue-600 to-green-500 text-white shadow-lg py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6">
+      <h1 class="text-3xl font-extrabold tracking-wide drop-shadow-lg">💊 AI Prescription Verifier</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="underline font-semibold">About</a>
+        <a href="support.html" class="hover:underline">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main About Section -->
+  <main class="flex-1 px-6 py-12 max-w-5xl mx-auto">
+    <div class="bg-white/90 rounded-2xl shadow-2xl p-8 md:p-12 backdrop-blur-sm">
+      <h2 class="text-4xl font-bold mb-6 text-center bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+        About Our Project
+      </h2>
+
+      <p class="text-gray-700 leading-relaxed text-lg mb-6">
+        The <span class="font-semibold text-green-600">AI Prescription Verifier</span> is an innovative system designed 
+        to assist doctors, pharmacists, and patients in analyzing prescriptions quickly and safely. 
+        Our platform uses advanced <span class="font-semibold text-blue-600">AI algorithms</span> to:
+      </p>
+
+      <ul class="list-disc pl-8 text-gray-700 text-lg space-y-3 mb-8">
+        <li>✅ Detect possible <span class="font-semibold">drug interactions</span> and side effects.</li>
+        <li>✅ Verify correct <span class="font-semibold">dosages</span> based on patient age and conditions.</li>
+        <li>✅ Suggest <span class="font-semibold">safe alternatives</span> for risky medicines.</li>
+        <li>✅ Provide a <span class="font-semibold">user-friendly interface</span> for quick analysis.</li>
+      </ul>
+
+      <p class="text-gray-700 leading-relaxed text-lg mb-6">
+        By combining <span class="text-green-600 font-semibold">medical knowledge</span> with 
+        <span class="text-blue-600 font-semibold">AI technology</span>, our mission is to make 
+        prescription management safer, faster, and more reliable for everyone.
+      </p>
+
+      <div class="text-center mt-10">
+        <button onclick="window.location.href='index.html'" class="btn-glow">
+          ⬅️ Back to Home
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full mt-12 bg-gradient-to-r from-blue-600 to-green-500 text-white py-6 text-center text-sm">
+    © 2025 AI Prescription Verifier • Designed with 💙 + 💚
+  </footer>
+
+</body>
+</html>
